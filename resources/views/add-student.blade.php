@@ -8,6 +8,7 @@
 <body>
     <h2>Add Students</h2>
     <form method='post' action="{{URL::to('store-student')}}">
+    @csrf
         <div>
         <label for="">Name</label>
         <input type="text" name='name'>
