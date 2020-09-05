@@ -15,14 +15,14 @@
     <th>Edit</th>
     </thead>
     <tbody>
-    <tr>
     @foreach($slist as $s)
+    <tr>
     <td>{{$s->name}}</td>
     <td>{{$s->email}}</td>
     <td>{{$s->dob}}</td>
     <td><a href="{{URL::to('edit-student/'.$s->id)}}">Edit</a></td>
-    @endforeach
     </tr>
+    @endforeach
     </tbody>
     </table>
 </body>

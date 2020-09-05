@@ -49,4 +49,5 @@ Route::get('studentsli','StudentController@index');
 
 // class 5 start
 Route::get('edit-student/{id}','StudentController@edit');
+Route::post('update-student/{id}','StudentController@update');
 // class 5 end

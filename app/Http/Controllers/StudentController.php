@@ -41,5 +41,16 @@ class StudentController extends Controller
         $student = Student::where('id','=',$id) -> first();
         return view('edit-student',['student'=>$student]);
     }
+
+    public function update($id, Request $req){
+        $student = Student::where('id','=',$id) -> first();
+        $student->name = $req->name;
+        $student->email = $req->email;
+        $student->dob = $req->dob;
+        if($student->save()){
+            return redirect()->to('studentsli');
+        }
+
+    }
     // class 5 end
 }
