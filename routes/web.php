@@ -47,3 +47,9 @@ Route::get('studentsli','StudentController@index');
 Route::get('edit-student/{id}','StudentController@edit');
 Route::post('update-student/{id}','StudentController@update');
 // class 5 end
+
+//routes for admin panel
+Route::get('dashboard',function(){
+    return view('admin.pages.dashboard');
+});
+// end
