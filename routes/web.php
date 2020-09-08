@@ -14,20 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 // class1 start
 Route::get('/', function () {
-    return view('welcome');
+    return view('website.pages.welcome');
 });
-Route:: get('about-us',function(){
-    echo "This will print about us page";
+Route::get('about-us', function () {
+    return view('website.pages.about-us');
 });
-
-Route:: get('about-us/we',function(){
-    echo "This will print about us and we";
+Route::get('contact-us', function () {
+    return view('website.pages.contact-us');
 });
-Route:: get('about-us/{anyname}',function($name){
-    return view('about-us',['myname'=>$name]);
-});
-Route:: get('about-us/{anyname}/{anymail}',function($name,$em){
-    return view('about-us',['myname'=>$name,'mymail'=>$em]);
+Route::get('services', function () {
+    return view('website.pages.services');
 });
 // class 1 end
 
