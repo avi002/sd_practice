@@ -61,5 +61,7 @@ Route::group(['middleware' => 'checkloggedin'],function(){
     Route::get('dashboard',function(){
         return view('admin.pages.dashboard');
     });
-    // end
+    Route::get('products','ProductController@all');
+   
 });
+// end
