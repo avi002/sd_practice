@@ -48,13 +48,18 @@ Route::get('edit-student/{id}','StudentController@edit');
 Route::post('update-student/{id}','StudentController@update');
 // class 5 end
 
-//routes for admin panel
-Route::get('dashboard',function(){
-    return view('admin.pages.dashboard');
-});
-// end
+
 
 // route for single layout
 Route::get('login','AuthController@login');
 Route::post('loginstore','AuthController@loginstore');
 // end
+
+// middleware
+Route::group(['middleware' => 'checkloggedin'],function(){
+    //routes for admin panel
+    Route::get('dashboard',function(){
+        return view('admin.pages.dashboard');
+    });
+    // end
+});
