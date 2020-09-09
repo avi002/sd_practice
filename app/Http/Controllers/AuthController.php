@@ -19,7 +19,6 @@ class AuthController extends Controller
             return redirect()->to('dashboard');
         }
         else{
-            echo ;
             return redirect()->to('login');
         }
 
