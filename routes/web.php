@@ -53,3 +53,8 @@ Route::get('dashboard',function(){
     return view('admin.pages.dashboard');
 });
 // end
+
+// route for single layout
+Route::get('login','AuthController@login');
+Route::post('loginstore','AuthController@loginstore');
+// end
