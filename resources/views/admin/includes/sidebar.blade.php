@@ -12,6 +12,11 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                     Products
                 </a>
+                <div class="sb-sidenav-menu-heading">Students</div>
+                <a class="nav-link" href="{{URL::to('studentsli')}}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    Students Info
+                </a>
                 <div class="sb-sidenav-menu-heading">Interface</div>
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>

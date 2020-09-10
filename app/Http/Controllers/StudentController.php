@@ -10,7 +10,7 @@ use App\Student;
 class StudentController extends Controller
 {
     public function create(){
-        return view('add-student');
+        return view('admin.pages.add-student');
     }
     public function store(Request $req){
         $name = $req->name;
@@ -25,6 +25,7 @@ class StudentController extends Controller
 
         if($obj->save()){
             echo 'Successfully inserted';
+            return redirect()->to('studentsli');
         }
         
 
@@ -33,13 +34,13 @@ class StudentController extends Controller
 
     public function index(){
         $students = Student::all();
-        return view('students',['slist'=>$students]);
+        return view('admin.pages.students',['slist'=>$students]);
     }
 
     // class 5
     public function edit($id){
         $student = Student::where('id','=',$id) -> first();
-        return view('edit-student',['student'=>$student]);
+        return view('admin.pages.edit-student',['student'=>$student]);
     }
 
     public function update($id, Request $req){
@@ -53,4 +54,9 @@ class StudentController extends Controller
 
     }
     // class 5 end
+
+    public function delete($id){
+        Student::where('id','=',$id) -> delete();
+        return redirect()->to('studentsli');
+    }
 }

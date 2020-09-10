@@ -37,17 +37,6 @@ Route:: get('add-employee','EmployeeController@add');
 Route:: post('insert-employee','EmployeeController@store');
 // class 3 end
 
-// class 4
-Route::get('add-student','StudentController@create');
-Route::post('store-student','StudentController@store');
-Route::get('studentsli','StudentController@index');
-// class 4 end
-
-// class 5 start
-Route::get('edit-student/{id}','StudentController@edit');
-Route::post('update-student/{id}','StudentController@update');
-// class 5 end
-
 
 
 // route for single layout
@@ -62,6 +51,24 @@ Route::group(['middleware' => 'checkloggedin'],function(){
         return view('admin.pages.dashboard');
     });
     Route::get('products','ProductController@all');
+
+    // class 4
+    Route::get('add-student','StudentController@create');
+    Route::post('store-student','StudentController@store');
+    Route::get('studentsli','StudentController@index');
+    // class 4 end
+
+    // class 5 start
+    Route::get('edit-student/{id}','StudentController@edit');
+    Route::get('delete-student/{id}','StudentController@delete');
+    Route::post('update-student/{id}','StudentController@update');
+    // class 5 end
+    Route::get('upload-image','UploadController@index');
+    Route::post('store-image','UploadController@store');
+
+
    
 });
 // end
+
+Route::get('logout','AuthController@logout');
