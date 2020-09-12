@@ -16,10 +16,36 @@
             <form action="{{URL::to('store-image')}}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <label for="image">Image</label>
-                <input type="file" name="picture" id="">
+                <input type="file" multiple name="picture[]" id="picture">
+                <br>
+                {{-- <img style="height: 50px; width: 50px" src="" id="preview" alt=""> --}}
                 <button type="submit">Upload</button>
             </form>
         </div>
+        <div>
+            @foreach ($image as $img)
+                <img src="{{asset('uploads/'.$img->filename)}}" alt="" style="height: 250px; width:400px; padding:3px">   
+            @endforeach
+        </div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script>
+        $("#picture").change(function() {
+            readURL(this);
+            });
+                    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function(e) {
+            $('#preview').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]); // convert to base64 string
+        }
+        }
+    </script>
 </body>
 </html>

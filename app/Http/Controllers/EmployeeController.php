@@ -41,4 +41,21 @@ class EmployeeController extends Controller
 
     }
         // class 3 end
+        public function createemp(){
+            return view('admin.pages.create-employee');
+        }
+        public function storeemp(Request $req){
+            $validatedData = $req->validate([
+                'name' => 'required|max:100',
+                'email' => 'required|email|unique:employees,email',
+                'salary' => 'required|integer',
+                'dob' => 'required|date'
+                ]);
+            $name = $req->name;
+            $email = $req->email;
+            $salary = $req->salary;
+            $dob = $req->dob;
+
+
+        }
 }

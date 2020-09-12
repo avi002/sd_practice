@@ -65,6 +65,8 @@ Route::group(['middleware' => 'checkloggedin'],function(){
     // class 5 end
     Route::get('upload-image','UploadController@index');
     Route::post('store-image','UploadController@store');
+    Route::get('create-employee','EmployeeController@createemp');
+    Route::post('store-employee','EmployeeController@storeemp');
 
 
    
