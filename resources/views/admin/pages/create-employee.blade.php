@@ -23,29 +23,26 @@
      @endif
     <div>
         <form action="{{URL::to('store-employee')}}" method="post">
-            @csrf
-
-
-
+            {{ csrf_field() }}
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" name="name" id="" class="form-control" required>
-                <span>{{$error->first('name')}}</span>
+            <input type="text" name="name" id="" class="form-control" value="{{old('name')}}" required>
+                <span>{{$errors->first('name')}}</span>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="text" name="email" id="" class="form-control" required>
-                <span>{{$error->first('email')}}</span>
+                <input type="text" name="email" id="" class="form-control" value="{{old('email')}}" required>
+                <span>{{$errors->first('email')}}</span>
             </div>
             <div class="form-group">
                 <label for="salary">Salary</label>
-                <input type="number" name="salary" id="" class="form-control" required>
-                <span>{{$error->first('salary')}}</span>
+                <input type="number" name="salary" id="" class="form-control" value="{{old('salary')}}" required>
+                <span>{{$errors->first('salary')}}</span>
             </div>
             <div class="form-group">
                 <label for="dob">DOB</label>
-                <input type="date" name="dob" id="" required>
-                <span>{{$error->first('dob')}}</span>
+                <input type="date" name="dob" id="" class="form-control" value="{{old('dob')}}" required>
+                <span>{{$errors->first('dob')}}</span>
             </div>
             <div class="form-group">
                 <input type="submit" name="" id="" class="form-control">
